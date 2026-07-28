@@ -1,6 +1,5 @@
 (ns kotoba.capability.hash.sha256
-  "Importable contract for hash/sha256."
-  (:require [kotoba.core.capability-repository :as repository]))
+  "Importable contract for hash/sha256.")
 
 (def manifest
-  (repository/repository-manifest "hash/sha256"))
+  {:schema "kotoba.capability.repository.v1", :capability/version 1, :capability/dependencies #{}, :capability/imports #{:sha256-hex}, :authority "kotoba-lang/kotoba-core-contracts", :capability/default-policy :autonomous, :capability/artifact {:format :wasm-component, :digest-required? true, :signature-required? true}, :capability/radicle-rid "rad:z26YBHK3P3JhT5JJhcxwXuHXjVnZA", :capability/repository "kotoba-lang/capability-hash-sha256", :capability/id "hash/sha256", :capability/effects #{:crypto}, :capability/provider-status :contract-only})
