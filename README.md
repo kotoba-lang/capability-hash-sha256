@@ -18,7 +18,7 @@ writes 64 lowercase hex ASCII bytes. JVM `digest-hex` uses
 `MessageDigest/SHA-256` for the same vectors.
 
 ```sh
-clojure -M:test
+kbb -M:test
 ```
 
 Rebuild the wasm core (optional):
