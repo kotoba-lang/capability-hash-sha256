@@ -1,5 +1,5 @@
 (ns kotoba.capability.hash.sha256-test
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.bytes :as kbytes] [kotoba.test :refer [deftest is]]
             [clojure.java.io :as io]
             [kotoba.capability.hash.sha256 :as capability]
             [kotoba.capability.hash.sha256.provider :as provider]
@@ -46,4 +46,4 @@
     (is (= "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
            (f "hello")))
     ;; bytes path
-    (is (= (f "hello") (f (.getBytes "hello" "UTF-8"))))))
+    (is (= (f "hello") (f (kbytes/utf8-bytes "hello"))))))
