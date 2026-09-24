@@ -5,14 +5,14 @@
   ABI metadata matches kototama.tender: (ptr len out-ptr out-cap) -> i32.
   Memory-backed host injection remains the embedder's job; this namespace
   proves the digest semantics with MessageDigest."
-  (:import [java.security MessageDigest]
-           [java.nio.charset StandardCharsets]))
+  (:import [java.security MessageDigest])
+  (:require [kotoba.bytes :as kbytes]))
 
 (defn digest-hex
   "Lowercase hex SHA-256 of UTF-8 string or byte array."
   [input]
   (let [^bytes bs (cond
-                    (string? input) (.getBytes ^String input StandardCharsets/UTF_8)
+                    (string? input) (kbytes/utf8-bytes ^String input)
                     (bytes? input) input
                     :else (byte-array input))
         digest (.digest (MessageDigest/getInstance "SHA-256") bs)]
